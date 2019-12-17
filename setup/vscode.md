@@ -103,9 +103,20 @@ vscode는 특정 언어를 위해 만들어진게 아니라 범용 편집기이�
 }
 ```
 
-- label: 
+- label: 작업의 이름, 빌드 단축기 Ctrl+Shift+B 를 눌렀을 때 선택할 이름
+- type: `shell` or `process`. `shell` 이면 "command"를 쉘 명령어로 실행, `process`면 프로세스 실행?
+- command: 실행할 빌드 실행 파일
+- args: `command`의 인자
+- presentation: 
+- problemMatcher:
 
 
+
+https://yjcode.tistory.com/1
 
 <https://code.visualstudio.com/docs/editor/tasks#_defining-a-problem-matcher>
+
+https://webnautes.tistory.com/1158
+
+https://yjcode.tistory.com/3
 
