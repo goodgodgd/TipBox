@@ -103,12 +103,69 @@ vscode는 특정 언어를 위해 만들어진게 아니라 범용 편집기이�
 }
 ```
 
+- type: `shell` or `process`. `shell` 이면 "command"를 쉘 명령어로서 실행, `process`면 프로세스 실행?
 - label: 작업의 이름, 빌드 단축기 Ctrl+Shift+B 를 눌렀을 때 선택할 이름
-- type: `shell` or `process`. `shell` 이면 "command"를 쉘 명령어로 실행, `process`면 프로세스 실행?
-- command: 실행할 빌드 실행 파일
+- command: 빌드를 실행할 컴파일러
 - args: `command`의 인자
-- presentation: 
-- problemMatcher:
+- cwd: Current Working Directory
+- presentation: 실행했을 때 출력을 어떻게 보여줄지를 설정, 자세한 내용은 [Output behaviour](<https://code.visualstudio.com/docs/editor/tasks#_output-behavior>) 참조
+- problemMatcher: Warning이나 Error 문을 보여주는 형식 지정, 자세한 내용은 [Defining a problem matcher](<https://code.visualstudio.com/docs/editor/tasks#_defining-a-problem-matcher>) 참조
+
+기본 템플릿을 다음과 같이 수정하였다.
+
+```json
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558 
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "g++ build,
+            "command": "/usr/bin/g++",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "problemMatcher": {
+            // The problem is owned by the cpp language service.
+            "owner": "cpp",
+            // The file name for reported problems is relative to the opened folder.
+            "fileLocation": ["relative", "${workspaceFolder}"],
+            // The actual pattern to match problems in the output.
+            "pattern": {
+                // The regular expression.
+                "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                "file": 1,
+                "line": 2,
+                "column": 3,
+                "severity": 4,
+                "message": 5
+              }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+		{
+            "label": "execute"
+            "command": "cd {fileDirName} && ./${fileBasenameNoExtension}",
+            "group": "test"
+        }
+    ]
+}
+```
+
+
+
+
+
+
+
+
 
 
 
