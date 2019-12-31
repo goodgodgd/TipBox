@@ -73,7 +73,7 @@ https://remotedesktop.google.com/access
 https://superuser.com/questions/778028/configuring-chrome-remote-desktop-with-ubuntu-gnome-14-04/850359#850359
 
 ```
-$ sudo usermod -a -G chrome-remote-desktop username
+$ sudo usermod -a -G chrome-remote-desktop [username]
 $ /opt/google/chrome-remote-desktop/chrome-remote-desktop --stop
 $ sudo cp /opt/google/chrome-remote-desktop/chrome-remote-desktop /opt/google/chrome-remote-desktop/chrome-remote-desktop.orig
 $ sudo gedit /opt/google/chrome-remote-desktop/chrome-remote-desktop
