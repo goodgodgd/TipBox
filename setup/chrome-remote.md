@@ -109,3 +109,30 @@ FIRST_X_DISPLAY_NUMBER = 1
 ### 접속 컴퓨터 세팅
 
 접속 컴퓨터에서는 Chrome Remote Desktop만 설치하면 됨
+
+
+
+## 외장하드 문제
+
+크롬 데스크탑을 세팅한 상태에서 외장하드가 마운트가 안되는 문제
+
+> Unable to access "~~"
+>
+> not authorized to perform operation
+>
+
+
+일단 아래 명령어로 사용자를 크롬데탑 그룹에서 제외하고 재부팅
+
+```
+sudo gpasswd -d $USER chrome-remote-desktop
+```
+
+재부팅 후 외장하드를 연결하고 만약 다시 크롬데탑을 쓰고 싶다면 다시 시작
+
+```
+sudo usermod -a -G chrome-remote-desktop $USER
+/opt/google/chrome-remote-desktop/chrome-remote-desktop --stop
+/opt/google/chrome-remote-desktop/chrome-remote-desktop --start
+```
+
