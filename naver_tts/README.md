@@ -97,7 +97,7 @@ def text_to_voice(textfile, voicefile):
     with open(textfile, "rt", encoding="utf-8") as f:
         text = f.read()
     print("text:", text)
-    voice = pull_voice("안녕하세요? 전자정보공학과입니다.")
+    voice = pull_voice(text)
     save_voice(voice, voicefile)
 
 
