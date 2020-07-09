@@ -49,6 +49,16 @@ Install the CUDA 10.0 Samples?
 
 ```
 
+- CUDA 버전확인
+
+```
+nvcc --version
+
+# 만약 cuda를 설치했는데 nvcc가 없다고 하면 ~/.bashrc에 다음 두 줄 추가
+export PATH="/usr/local/cuda-10.1/bin${PATH:+:${PATH}}"
+export LD_LIBRARY_PATH="/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
+```
+
 
 
 ## CuDNN 설치
@@ -61,3 +71,4 @@ Install the CUDA 10.0 Samples?
 sudo cp -r extracted_dir/cuda/include /usr/local/cuda
 sudo cp -r extracted_dir/cuda/lib64 /usr/local/cuda
 ```
+
