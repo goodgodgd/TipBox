@@ -72,3 +72,8 @@ sudo cp -r extracted_dir/cuda/include /usr/local/cuda
 sudo cp -r extracted_dir/cuda/lib64 /usr/local/cuda
 ```
 
+### CuDNN 에러
+
+**Could not create cudnn handle: CUDNN STATUS INTERNAL ERROR**
+
+해결책은 <https://stackoverflow.com/a/59415928> 여기에
